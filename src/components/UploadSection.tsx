@@ -115,13 +115,13 @@ export const UploadSection = () => {
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-3">
             Upload Your Student Results
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Upload Excel or CSV files containing student data and assessment results. 
             Our system will automatically process and generate professional certificates.
           </p>
@@ -130,22 +130,22 @@ export const UploadSection = () => {
         {/* School Information Form */}
         <SchoolInfoForm />
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <Card className="border-2 border-dashed border-primary/20 bg-primary/5 hover:border-primary/40 transition-colors">
-            <CardHeader className="text-center">
-              <CardTitle className="flex items-center justify-center gap-2 text-2xl">
-                <Upload className="w-6 h-6 text-primary" />
+            <CardHeader className="text-center pb-4">
+              <CardTitle className="flex items-center justify-center gap-2 text-xl">
+                <Upload className="w-5 h-5 text-primary" />
                 File Upload
               </CardTitle>
-              <CardDescription className="text-base">
+              <CardDescription>
                 Drag and drop your files here, or click to browse
               </CardDescription>
             </CardHeader>
             
-            <CardContent>
+            <CardContent className="pb-6">
               {uploadStatus === 'idle' && (
                 <div
-                  className={`relative border-2 border-dashed rounded-lg p-12 text-center transition-colors ${
+                  className={`relative border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
                     dragActive 
                       ? 'border-primary bg-primary/10' 
                       : 'border-border hover:border-primary/50'
@@ -155,16 +155,16 @@ export const UploadSection = () => {
                   onDragOver={handleDrag}
                   onDrop={handleDrop}
                 >
-                  <div className="space-y-4">
-                    <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Upload className="w-8 h-8 text-primary" />
+                  <div className="space-y-3">
+                    <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Upload className="w-6 h-6 text-primary" />
                     </div>
                     
                     <div>
-                      <p className="text-lg font-medium text-foreground mb-2">
+                      <p className="font-medium text-foreground mb-1">
                         Drop your files here
                       </p>
-                      <p className="text-muted-foreground mb-4">
+                      <p className="text-sm text-muted-foreground mb-3">
                         Supports Excel (.xlsx, .xls) and CSV files
                       </p>
                       
@@ -186,32 +186,32 @@ export const UploadSection = () => {
               )}
 
               {uploadStatus === 'uploading' && (
-                <div className="text-center py-12">
-                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 animate-glow">
-                    <FileSpreadsheet className="w-8 h-8 text-primary animate-pulse" />
+                <div className="text-center py-8">
+                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 animate-glow">
+                    <FileSpreadsheet className="w-6 h-6 text-primary animate-pulse" />
                   </div>
-                  <p className="text-lg font-medium text-foreground mb-2">
+                  <p className="font-medium text-foreground mb-1">
                     Processing your file...
                   </p>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Analyzing student data and preparing result statements
                   </p>
                 </div>
               )}
 
               {uploadStatus === 'success' && uploadedFile && (
-                <div className="text-center py-8">
-                  <div className="mx-auto w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <CheckCircle className="w-8 h-8 text-accent" />
+                <div className="text-center py-6">
+                  <div className="mx-auto w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-3">
+                    <CheckCircle className="w-6 h-6 text-accent" />
                   </div>
-                  <p className="text-lg font-medium text-foreground mb-2">
+                  <p className="font-medium text-foreground mb-1">
                     File uploaded successfully!
                   </p>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-sm text-muted-foreground mb-4">
                     {uploadedFile.name} • {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB
                   </p>
                   
-                  <div className="flex justify-center gap-4">
+                  <div className="flex justify-center gap-3">
                     {!showCertificates ? (
                       <Button 
                         variant="success"
@@ -242,14 +242,14 @@ export const UploadSection = () => {
               )}
 
               {uploadStatus === 'error' && (
-                <div className="text-center py-8">
-                  <div className="mx-auto w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mb-4">
-                    <AlertCircle className="w-8 h-8 text-destructive" />
+                <div className="text-center py-6">
+                  <div className="mx-auto w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mb-3">
+                    <AlertCircle className="w-6 h-6 text-destructive" />
                   </div>
-                  <p className="text-lg font-medium text-foreground mb-2">
+                  <p className="font-medium text-foreground mb-1">
                     Upload failed
                   </p>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-sm text-muted-foreground mb-4">
                     Please check your file format and try again
                   </p>
                   <Button 
@@ -266,39 +266,40 @@ export const UploadSection = () => {
 
           {/* Certificate Generator */}
           {showCertificates && (
-            <div className="mt-8">
+            <div className="mt-6">
               <CertificateGenerator />
             </div>
           )}
 
-          {/* Supported Formats */}
-          <div className="mt-8 grid md:grid-cols-3 gap-4">
+          {/* Supported Formats - Compact Version */}
+          <div className="mt-6 grid grid-cols-3 gap-3">
             <Card className="text-center hover:shadow-academic transition-shadow">
-              <CardContent className="p-6">
-                <FileSpreadsheet className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Excel Files</h3>
-                <div className="space-x-2">
-                  <Badge variant="secondary">.xlsx</Badge>
-                  <Badge variant="secondary">.xls</Badge>
+              <CardContent className="p-4">
+                <FileSpreadsheet className="w-6 h-6 text-primary mx-auto mb-2" />
+                <h3 className="font-semibold text-sm mb-1">Excel Files</h3>
+                <div className="space-x-1">
+                  <Badge variant="secondary" className="text-xs">.xlsx</Badge>
+                  <Badge variant="secondary" className="text-xs">.xls</Badge>
                 </div>
               </CardContent>
             </Card>
             
             <Card className="text-center hover:shadow-academic transition-shadow">
-              <CardContent className="p-6">
-                <FileText className="w-8 h-8 text-accent mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">CSV Files</h3>
-                <Badge variant="secondary">.csv</Badge>
+              <CardContent className="p-4">
+                <FileText className="w-6 h-6 text-accent mx-auto mb-2" />
+                <h3 className="font-semibold text-sm mb-1">CSV Files</h3>
+                <Badge variant="secondary" className="text-xs">.csv</Badge>
               </CardContent>
             </Card>
             
             <Card className="text-center hover:shadow-academic transition-shadow">
-              <CardContent className="p-6">
-                <Download className="w-8 h-8 text-secondary mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">Sample Template</h3>
+              <CardContent className="p-4">
+                <Download className="w-6 h-6 text-secondary mx-auto mb-2" />
+                <h3 className="font-semibold text-sm mb-1">Template</h3>
                 <Button 
                   variant="outline" 
                   size="sm"
+                  className="text-xs h-7"
                   onClick={() => toast({
                     title: "Downloading Template",
                     description: "Sample Excel template will be downloaded shortly.",
@@ -315,4 +316,3 @@ export const UploadSection = () => {
     </section>
   );
 };
-

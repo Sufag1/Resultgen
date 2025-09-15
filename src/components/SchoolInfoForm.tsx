@@ -123,7 +123,7 @@ export const SchoolInfoForm = () => {
   return (
     <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <Card className="border border-primary/20 bg-card">
             <CardHeader className="text-center">
               <CardTitle className="flex items-center justify-center gap-2 text-2xl">
@@ -163,7 +163,7 @@ export const SchoolInfoForm = () => {
               </div>
 
               {/* Academic Session */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="academic-session">Academic Session</Label>
                   <Input
@@ -298,7 +298,7 @@ export const SchoolInfoForm = () => {
                 </div>
                 
                 {/* Statement of Result Signatories */}
-                <div className="space-y-4 p-4 bg-muted rounded-lg">
+                <div className="space-y-4 p-4 bg-muted/50 rounded-lg">
                   <div className="flex items-center gap-2 mb-3">
                     <FileText className="w-4 h-4 text-primary" />
                     <Label className="font-medium">Statement of Result Signatory</Label>
@@ -363,7 +363,7 @@ export const SchoolInfoForm = () => {
                 </div>
 
                 {/* Certificate Signatories */}
-                <div className="space-y-4 p-4 bg-muted rounded-lg">
+                <div className="space-y-4 p-4 bg-muted/50 rounded-lg">
                   <div className="flex items-center gap-2 mb-3">
                     <Award className="w-4 h-4 text-primary" />
                     <Label className="font-medium">Certificate Signatory</Label>
